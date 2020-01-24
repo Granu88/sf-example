@@ -5,7 +5,6 @@ namespace App\EventListener;
 use Symfony\Component\HttpFoundation\JsonResponse;
 use Symfony\Component\HttpKernel\Event\ExceptionEvent;
 use Symfony\Component\HttpKernel\Exception\HttpExceptionInterface;
-use Symfony\Component\Routing\Exception\ResourceNotFoundException;
 
 class ExceptionListener
 {
@@ -21,7 +20,7 @@ class ExceptionListener
 
             $message = $exception->getMessage();
 
-            if ($exception->getPrevious() instanceof ResourceNotFoundException) {
+            if ($exception->getPrevious()) {
                 $message = "The requested URL was not found on the server";
             }
 
