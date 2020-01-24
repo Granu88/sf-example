@@ -1,4 +1,12 @@
-controllers:
+app_controllers:
+    name_prefix: app_
+    prefix: /{_locale}
+    resource: ../../src/Controller/
+    type: annotation
+    requirements:
+        _locale: en|fr
+
+api_controllers:
     name_prefix: api_
     prefix: /api
     resource: ../../src/Controller/Api/
